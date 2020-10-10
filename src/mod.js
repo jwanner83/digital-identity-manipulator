@@ -9,6 +9,18 @@ import * as un from './handlers/undefined'
 
 (async function () {
   config.DEBUG && console.group('Digital Identity Generator')
+
+  config.DEBUG && console.log('check if enabled')
+  const { enabled } = await browser.storage.local.get()
+
+  if (enabled === true) {
+    config.DEBUG && console.log('generator is enabled')
+  } else {
+    config.DEBUG && console.log('generator is disabled')
+    config.DEBUG && console.groupEnd()
+    return
+  }
+
   const type = getType(window.location)
   config.DEBUG && console.log('type', type)
   config.DEBUG && console.groupEnd()
