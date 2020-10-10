@@ -1,6 +1,7 @@
-export function wait (max, min) {
+export function wait (max, min = undefined) {
   return new Promise(resolve => {
-    setTimeout(resolve, getRandomBetween(max, min))
+    const time = min ? getRandomBetween(max, min) : max
+    setTimeout(resolve, time)
   })
 }
 

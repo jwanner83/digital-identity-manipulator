@@ -1,6 +1,6 @@
 import config from '../config'
 import right from '../assets/right'
-import { wait } from "../utils";
+import { getRandomBetween, wait } from "../utils";
 
 export async function init () {
   config.DEBUG && console.group('search handler')
@@ -19,8 +19,10 @@ export async function init () {
   config.DEBUG && console.log('write value to element')
   await write(value, input)
 
+  await wait(700, 200)
+
   config.DEBUG && console.log('send request')
-  await click(send)
+  await send.click()
 
   config.DEBUG && console.log('done')
   config.DEBUG && console.groupEnd()
@@ -30,26 +32,10 @@ async function write (value, element) {
   return new Promise(async function(resolve) {
     let chars = value.split('')
     for (const char of chars) {
-      await writeChar(element, char, Math.floor(Math.random() * 400) + 50)
+      await wait(400, 50)
+      element.value = element.value + char
     }
     resolve()
   })
 }
 
-async function writeChar (element, char, time) {
-  return new Promise(async function(resolve) {
-    setTimeout(() => {
-      element.value = element.value + char
-      resolve()
-    }, time)
-  })
-}
-
-function click (element) {
-  return new Promise(function(resolve) {
-    setTimeout(() => {
-      element.click()
-      resolve()
-    }, Math.floor(Math.random() * 750) + 100)
-  })
-}
