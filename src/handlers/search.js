@@ -1,12 +1,19 @@
 import config from '../config'
 import right from '../assets/right'
-import { getRandomBetween, wait } from "../utils";
+import { getRandomAlphabeticChar, getRandomBetween, wait } from "../utils";
 
 export async function init () {
   config.DEBUG && console.group('search handler')
 
-  const value = right[Math.floor(Math.random() * right.length)]
+  let value = right[Math.floor(Math.random() * right.length)]
   config.DEBUG && console.log('value', value)
+
+  // add 1 / 4 possibility to have a typo in the value
+  if (getRandomBetween(4) === 1) {
+    let chars = value.split('')
+    chars.splice(getRandomBetween(chars.length, 0), 0, getRandomAlphabeticChar())
+    value = chars.join('')
+  }
 
   const input = document.querySelector('input[name=q]')
   config.DEBUG && console.log('input element', input)
@@ -38,4 +45,3 @@ async function write (value, element) {
     resolve()
   })
 }
-

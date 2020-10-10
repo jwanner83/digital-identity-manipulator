@@ -8,3 +8,8 @@ export function wait (max, min = undefined) {
 export function getRandomBetween (max, min = 1) {
   return Math.floor(Math.random() * max) + min
 }
+
+export function getRandomAlphabeticChar () {
+  const possibilities = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
+  return possibilities[Math.floor(Math.random() * possibilities.length)]
+}
