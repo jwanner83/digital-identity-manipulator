@@ -11,6 +11,7 @@ import * as un from './handlers/undefined'
   config.DEBUG && console.group('Digital Identity Generator')
   const type = getType(window.location)
   config.DEBUG && console.log('type', type)
+  config.DEBUG && console.groupEnd()
 
   switch (type) {
     case TYPES.SEARCH: search.init(); break;

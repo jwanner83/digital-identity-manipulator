@@ -1,5 +1,5 @@
 import config from '../config'
-import { wait } from '../utils'
+import { getRandomBetween, wait } from '../utils'
 
 export async function init () {
   config.DEBUG && console.group('results handler')
@@ -16,12 +16,19 @@ export async function init () {
   const anchor = result.querySelector('a')
   config.DEBUG && console.log('result anchor', anchor)
 
-  await wait(500, 1500)
+  for (const item of new Array(getRandomBetween(3))) {
+    config.DEBUG && console.log('interact')
+    await wait(1500, 100)
+    window.scrollTo({
+      top: getRandomBetween(document.body.clientHeight),
+      behavior: 'smooth'
+    });
+  }
 
   anchor.scrollIntoView({ behavior: 'smooth' })
   config.DEBUG && console.log('scrolled into view')
 
-  await wait(500, 2500)
+  await wait(2500, 500)
 
   anchor.click()
   config.DEBUG && console.log('clicked on result')

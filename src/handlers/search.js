@@ -14,7 +14,7 @@ export async function init () {
   const send = document.querySelector('input[value="Google Suche"]')
   config.DEBUG && console.log('send element', send)
 
-  await wait(50, 700)
+  await wait(700, 50)
 
   config.DEBUG && console.log('write value to element')
   await write(value, input)
