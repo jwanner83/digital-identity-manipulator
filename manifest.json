@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Digital Identity Generator",
+  "version": "0.1",
+
+  "description": "Browser Extension to create a digital identity for Google",
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["dist/mod.js"]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ]
+}
