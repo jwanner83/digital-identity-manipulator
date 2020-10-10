@@ -15,6 +15,7 @@
     "default_popup": "popup/index.html"
   },
   "permissions": [
-    "storage"
+    "storage",
+    "search"
   ]
 }

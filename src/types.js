@@ -15,7 +15,7 @@ export function getType ({ host, pathname }) {
   if (host === config.SEARCH.HOST) {
     if (pathname === '/search') {
       return TYPES.RESULTS
-    } else if (pathname === ('/' || '/webhp')) {
+    } else if (pathname === '/' || pathname === '/webhp') {
       return TYPES.SEARCH
     } else {
       return TYPES.UNDEFINED

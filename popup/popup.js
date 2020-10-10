@@ -12,6 +12,8 @@ function set (storage) {
   if (enabled) {
     document.body.classList.remove('disabled')
     document.body.classList.add('enabled')
+
+    browser.search.search({ query: '' })
   } else {
     document.body.classList.remove('enabled')
     document.body.classList.add('disabled')
