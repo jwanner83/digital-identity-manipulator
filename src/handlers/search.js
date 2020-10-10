@@ -1,5 +1,6 @@
 import config from '../config'
 import right from '../assets/right'
+import { wait } from "../utils";
 
 export async function init () {
   config.DEBUG && console.group('search handler')
@@ -12,6 +13,8 @@ export async function init () {
 
   const send = document.querySelector('input[value="Google Suche"]')
   config.DEBUG && console.log('send element', send)
+
+  await wait(50, 700)
 
   config.DEBUG && console.log('write value to element')
   await write(value, input)
@@ -27,7 +30,7 @@ async function write (value, element) {
   return new Promise(async function(resolve) {
     let chars = value.split('')
     for (const char of chars) {
-      await writeChar(element, char, Math.floor(Math.random() * 750) + 50)
+      await writeChar(element, char, Math.floor(Math.random() * 400) + 50)
     }
     resolve()
   })
