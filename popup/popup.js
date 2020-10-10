@@ -12,8 +12,6 @@ function set (storage) {
   if (enabled) {
     document.body.classList.remove('disabled')
     document.body.classList.add('enabled')
-
-    browser.search.search({ query: '' })
   } else {
     document.body.classList.remove('enabled')
     document.body.classList.add('disabled')
@@ -22,6 +20,9 @@ function set (storage) {
 
 for (const button of document.querySelectorAll('.button')) {
   button.addEventListener('click', () => {
+    if (!enabled) {
+      browser.search.search({ query: '' })
+    }
     browser.storage.local.set({ enabled: !enabled }).then(init)
   })
 }
