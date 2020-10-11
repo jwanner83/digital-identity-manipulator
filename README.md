@@ -32,9 +32,15 @@ Download the `digital_identity_generator-x.x-an+fx.xpi` from the `build` Folder 
 ## How to run
 After you successful installed the Addon you should see a new icon appear in your browser in the top left corner. Click
 this and then a popup should open which should tell you that the _Digital Identity Generator_ is currently disabled. 
-If you click the `Enable` button, a new Tab should open, and the magic begins.
 
+If this is the case, go to `about:addons` and move to the Addon `Digital Identity Generator`. Then press the card with 
+the addon. After that you should see a `Settings` tab in the small tab menu. Press on it and add in all the keywords you
+want to search, separated by a linebreak.
 
-<br><br><br>
-> **License** \
+After you've done that, press save to save the keywords.
+
+After you've done all this you can click the `Enable` button in the addon popup and a new Tab should open, 
+and the magic begins.
+
+## License
 This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>
