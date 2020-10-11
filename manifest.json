@@ -14,6 +14,9 @@
     "default_title": "Digital Identity Generator",
     "default_popup": "popup/index.html"
   },
+  "options_ui": {
+    "page": "options/index.html"
+  },
   "permissions": [
     "storage",
     "search"

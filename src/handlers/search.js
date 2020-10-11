@@ -1,11 +1,14 @@
 import config from '../config'
-import right from '../assets/right'
 import { getRandomAlphabeticChar, getRandomBetween, wait } from "../utils";
 
 export async function init () {
   config.DEBUG && console.group('search handler')
 
-  let value = right[Math.floor(Math.random() * right.length)]
+  let storage = await browser.storage.local.get()
+  let keywords = storage.keywords ? storage.keywords.split(',') : ['no keywords']
+  config.DEBUG && console.log('keywords', keywords)
+
+  let value = keywords[Math.floor(Math.random() * keywords.length)]
   config.DEBUG && console.log('value', value)
 
   // add 1 / 4 possibility to have a typo in the value
