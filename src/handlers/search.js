@@ -21,7 +21,7 @@ export async function init () {
   const input = document.querySelector('input[name=q]')
   config.DEBUG && console.log('input element', input)
 
-  const send = document.querySelector('input[value="Google Suche"]')
+  const send = document.querySelector('input[value="Google Suche"], input[value="Google Search"], input[value="Recherche Google"], input[value="Cerca con Google"]')
   config.DEBUG && console.log('send element', send)
 
   await wait(700, 50)
