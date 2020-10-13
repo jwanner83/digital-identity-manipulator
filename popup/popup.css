@@ -8,6 +8,25 @@ body {
     line-height: 1.35;
 }
 
+.content {
+    display: flex;
+}
+
+.settings {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.settings:active {
+    transform: scale(0.9);
+}
+
+.settings svg {
+    fill: #bbb;
+}
+
 .action {
     margin-top: 10px;
 }
@@ -29,10 +48,25 @@ body {
     transform: scale(0.95);
 }
 
+.no-keywords .button {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
 .enabled-item, .disabled-item {
     display: none;
 }
 
 .enabled .enabled-item, .disabled .disabled-item {
     display: initial;
+}
+
+.no-keywords-message {
+    font-style: italic;
+    margin-top: 5px;
+    display: none;
+}
+
+.no-keywords .no-keywords-message {
+    display: block;
 }
