@@ -15,8 +15,10 @@ export default {
   text-align: center;
   border-top: 1px #ccc solid;
   border-bottom: 1px #ccc solid;
+  padding: 16px 0 14px;
 
   &-text {
+    margin: 0;
     font-size: 14px;
     color: #999;
     font-style: italic;
