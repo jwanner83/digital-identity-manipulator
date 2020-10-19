@@ -30,6 +30,7 @@ export default {
   &-title {
     font-size: 18px;
     margin: 5px 0 0 0;
+    color: #20123a;
   }
 
   &-settings {
