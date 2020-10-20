@@ -1,12 +1,19 @@
 <template>
   <div class="status">
-    <p class="status-text">currently inactive</p>
+    <p v-if="active" class="status-text status-text-active">active</p>
+    <p v-else class="status-text status-text-inactive">currently inactive</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'status'
+  name: 'status',
+  props: {
+    active: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
@@ -21,7 +28,14 @@ export default {
     margin: 0;
     font-size: 14px;
     color: #363959;
-    font-style: italic;
+
+    &-active {
+      font-weight: bold;
+    }
+
+    &-inactive {
+      font-style: italic;
+    }
   }
 }
 </style>

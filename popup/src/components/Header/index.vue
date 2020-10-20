@@ -31,7 +31,7 @@ export default {
 
   &-title {
     font-size: 18px;
-    margin: 5px 0 0 0;
+    margin: 0;
     color: #20123a;
     font-family: "Open Sans", sans-serif;
   }
@@ -46,10 +46,12 @@ export default {
 
     &:hover {
       opacity: 0.6;
+      transform: rotate(30deg);
     }
 
     &:active {
       opacity: 1;
+      transform: rotate(80deg);
     }
   }
 }

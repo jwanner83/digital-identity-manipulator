@@ -1,9 +1,9 @@
 <template>
   <div :class="[ 'app', { 'settings-active' : settingsActive } ]">
     <Header @change="settingsActive = !settingsActive" />
-    <Status />
+    <Status :active="active" />
     <Content />
-    <Action />
+    <Action :active="active" />
   </div>
 
   <Settings :active="settingsActive" @change="settingsActive = !settingsActive" />
@@ -27,7 +27,8 @@ export default {
   },
   data () {
     return {
-      settingsActive: false
+      settingsActive: false,
+      active: false
     }
   }
 }

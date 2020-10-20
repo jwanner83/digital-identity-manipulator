@@ -1,66 +1,43 @@
 <template>
   <div class="settings-content">
     <h1 class="settings-content-heading">General</h1>
-    <p class="settings-content-text">
-      <span>Enable <code>console.log</code> outputs</span>
-
-      <label class="switch settings-content-element">
-        <input v-model="debug" type="checkbox" @change.stop>
-        <span class="slider round"></span>
-      </label>
-    </p>
-
-    <p class="settings-content-text">
-      <span>Navigate to plain page after result</span>
-
-      <label class="switch settings-content-element">
-        <input v-model="navigateToPlain" type="checkbox" @change.stop>
-        <span class="slider round"></span>
-      </label>
-    </p>
+    <SettingsContentItem title="Enable debug mode">
+      <SettingsContentSwitch v-model="debug" />
+    </SettingsContentItem>
+    <SettingsContentItem title="Navigate to plain page after result">
+      <SettingsContentSwitch v-model="navigateToPlain" />
+    </SettingsContentItem>
 
     <h1 class="settings-content-heading">Interactions</h1>
-    <p class="settings-content-text">
-      <span>Maximal interaction amount</span>
-
-      <label class="number settings-content-element">
-        <input v-model="maximalInteractions" type="number" @change.stop>
-      </label>
-    </p>
-
-    <p class="settings-content-text">
-      <span>Interact with the google results page</span>
-
-      <label class="switch settings-content-element">
-        <input v-model="interactResults" type="checkbox" @change.stop>
-        <span class="slider round"></span>
-      </label>
-    </p>
-
-    <p class="settings-content-text">
-      <span>Interact with specific result page</span>
-
-      <label class="switch settings-content-element">
-        <input v-model="interactResult" type="checkbox" @change.stop>
-        <span class="slider round"></span>
-      </label>
-    </p>
+    <SettingsContentItem title="Maximal interaction amount">
+      <SettingsContentNumber v-model="maximalInteractions" />
+    </SettingsContentItem>
+    <SettingsContentItem title="Interact with the google results page">
+      <SettingsContentSwitch v-model="interactResults" />
+    </SettingsContentItem>
+    <SettingsContentItem title="settings-content-text">
+      <SettingsContentSwitch v-model="interactResult" />
+    </SettingsContentItem>
 
     <h1 class="settings-content-heading">Keywords</h1>
-    <p class="settings-content-text">
-      <span>Add chance for a typo</span>
-
-      <label class="switch settings-content-element">
-        <input v-model="addTypoChance" type="checkbox" @change.stop>
-        <span class="slider round"></span>
-      </label>
-    </p>
+    <SettingsContentItem title="Add chance for a typo">
+      <SettingsContentSwitch v-model="addTypoChance" />
+    </SettingsContentItem>
   </div>
 </template>
 
 <script>
+import SettingsContentItem from '@/components/Settings/Content/SettingsContentItem'
+import SettingsContentSwitch from '@/components/Settings/Content/SettingsContentSwitch'
+import SettingsContentNumber from '@/components/Settings/Content/SettingsContentNumber'
+
 export default {
   name: 'SettingsContent',
+  components: {
+    SettingsContentSwitch,
+    SettingsContentNumber,
+    SettingsContentItem
+  },
   data () {
     return {
       debug: true,
@@ -115,78 +92,6 @@ export default {
 
   &-element {
     margin-top: -2px;
-  }
-}
-
-code {
-  background: #e1e1e1;
-  padding: 3px 5px;
-  border-radius: 2px;
-}
-
-.number {
-  input {
-    width: 38px;
-    background: #f0f0f0;
-    padding: 5px;
-    border-radius: 2px;
-    border: 1px solid #e1e1e1;
-  }
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 30px;
-  height: 18px;
-
-  input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-
-    &:checked + .slider {
-      background-color: #2196F3;
-    }
-
-    &:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-
-    &:checked + .slider:before {
-      transform: translateX(12px);
-    }
-  }
-
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-
-    &.round {
-      border-radius: 15px;
-
-      &:before {
-        border-radius: 50%;
-      }
-    }
-
-    &:before {
-      position: absolute;
-      content: "";
-      height: 10px;
-      width: 10px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: .4s;
-    }
   }
 }
 </style>

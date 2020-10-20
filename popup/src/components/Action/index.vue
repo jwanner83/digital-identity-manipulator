@@ -39,11 +39,16 @@ export default {
     transition: 0.2s;
 
     &:hover {
-      opacity: 0.7;
+      opacity: 0.5;
     }
 
     &:active {
       opacity: 1;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 }
