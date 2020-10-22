@@ -3,7 +3,7 @@
     <Header @change="settingsActive = !settingsActive" />
     <Status :active="active" />
     <Content />
-    <Action :active="active" />
+    <Action :active="active" @change="active = !active" />
   </div>
 
   <Settings :active="settingsActive" @change="settingsActive = !settingsActive" />
@@ -28,8 +28,17 @@ export default {
   data () {
     return {
       settingsActive: false,
-      active: false
+      active: true
     }
+  },
+  watch: {
+    active (value) {
+      browser.storage.local.set({ active: value })
+    }
+  },
+  async created () {
+    const storage = await browser.storage.local.get()
+    this.active = storage.active
   }
 }
 </script>

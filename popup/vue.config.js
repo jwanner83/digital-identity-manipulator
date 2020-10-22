@@ -1,3 +1,3 @@
 module.exports = {
-  // publicPath: '/popup/dist/'
+  publicPath: '/popup/dist/'
 }

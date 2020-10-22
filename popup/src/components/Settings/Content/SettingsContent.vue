@@ -50,23 +50,33 @@ export default {
   },
   watch: {
     debug (value) {
-      console.log('debug', value)
+      browser.storage.local.set({ debug: value })
     },
     navigateToPlain (value) {
-      console.log('navigateToPlain', value)
+      browser.storage.local.set({ navigateToPlain: value })
     },
     maximalInteractions (value) {
-      console.log('maximalInteractions', value)
+      browser.storage.local.set({ maximalInteractions: value })
     },
     interactResults (value) {
-      console.log('interactResults', value)
+      browser.storage.local.set({ interactResults: value })
     },
     interactResult (value) {
-      console.log('interactResult', value)
+      browser.storage.local.set({ interactResult: value })
     },
     addTypoChance (value) {
-      console.log('addTypoChance', value)
+      browser.storage.local.set({ addTypoChance: value })
     }
+  },
+  async created () {
+    const storage = await browser.storage.local.get()
+
+    this.debug = storage.debug
+    this.navigateToPlain = storage.navigateToPlain
+    this.maximalInteractions = storage.maximalInteractions
+    this.interactResults = storage.interactResults
+    this.interactResult = storage.interactResult
+    this.addTypoChance = storage.addTypoChance
   }
 }
 </script>

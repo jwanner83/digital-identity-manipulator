@@ -1,6 +1,6 @@
 <template>
   <div class="action">
-    <button class="action-button">
+    <button class="action-button" @click="mutate">
       {{ message }}
     </button>
   </div>
@@ -18,6 +18,11 @@ export default {
   computed: {
     message () {
       return this.active ? 'Deactivate' : 'Activate'
+    }
+  },
+  methods: {
+    mutate () {
+      this.$emit('change')
     }
   }
 }
