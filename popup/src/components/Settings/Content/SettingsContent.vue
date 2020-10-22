@@ -15,7 +15,7 @@
     <SettingsContentItem title="Interact with the google results page">
       <SettingsContentSwitch v-model="interactResults" />
     </SettingsContentItem>
-    <SettingsContentItem title="settings-content-text">
+    <SettingsContentItem title="Interact with the external result page">
       <SettingsContentSwitch v-model="interactResult" />
     </SettingsContentItem>
 

@@ -35,6 +35,7 @@ export default {
   watch: {
     active (value) {
       browser.storage.local.set({ active: value })
+      value && browser.search.search({ query: '' })
     }
   },
   async created () {

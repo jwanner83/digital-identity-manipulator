@@ -1,4 +1,4 @@
-export default Object.freeze({
+export default {
   /** location of the search engine */
   SEARCH: {
     HOST: 'www.google.com',
@@ -8,7 +8,5 @@ export default Object.freeze({
   PLAIN: {
     HOST: 'upscore.ch',
     URL: 'https://upscore.ch/plain.html'
-  },
-  /** print console logs */
-  DEBUG: true
-})
+  }
+}
