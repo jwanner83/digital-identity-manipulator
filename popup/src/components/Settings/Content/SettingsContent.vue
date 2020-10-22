@@ -23,6 +23,8 @@
     <SettingsContentItem title="Add chance for a typo">
       <SettingsContentSwitch v-model="addTypoChance" />
     </SettingsContentItem>
+
+    <button class="settings-content-button" @click="openKeywords">Modify keywords</button>
   </div>
 </template>
 
@@ -77,6 +79,11 @@ export default {
     this.interactResults = storage.interactResults
     this.interactResult = storage.interactResult
     this.addTypoChance = storage.addTypoChance
+  },
+  methods: {
+    openKeywords () {
+      browser.runtime.openOptionsPage()
+    }
   }
 }
 </script>
@@ -102,6 +109,25 @@ export default {
 
   &-element {
     margin-top: -2px;
+  }
+
+  &-button {
+    font-size: 14px;
+    width: 100%;
+    padding: 5px;
+    background: #f0f0f0;
+    border-radius: 2px;
+    border: 1px solid #e1e1e1;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 1;
+    }
   }
 }
 </style>

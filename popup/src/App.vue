@@ -3,7 +3,7 @@
     <Header @change="settingsActive = !settingsActive" />
     <Status :active="active" />
     <Content />
-    <Action :active="active" @change="active = !active" />
+    <Action :active="active" :invalid="invalid" @change="mutate" />
   </div>
 
   <Settings :active="settingsActive" @change="settingsActive = !settingsActive" />
@@ -28,7 +28,8 @@ export default {
   data () {
     return {
       settingsActive: false,
-      active: true
+      active: true,
+      invalid: false
     }
   },
   watch: {
@@ -39,6 +40,17 @@ export default {
   async created () {
     const storage = await browser.storage.local.get()
     this.active = storage.active
+
+    if (!storage.keywords || storage.keywords.split(',').length === 0) {
+      this.invalid = true
+    }
+  },
+  methods: {
+    mutate () {
+      if (!this.invalid) {
+        this.active = !this.active
+      }
+    }
   }
 }
 </script>

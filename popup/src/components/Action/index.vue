@@ -1,6 +1,6 @@
 <template>
   <div class="action">
-    <button class="action-button" @click="mutate">
+    <button :title="title" :disabled="invalid" class="action-button" @click="mutate">
       {{ message }}
     </button>
   </div>
@@ -13,11 +13,18 @@ export default {
     active: {
       type: Boolean,
       default: false
+    },
+    invalid: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     message () {
       return this.active ? 'Deactivate' : 'Activate'
+    },
+    title () {
+      return this.invalid ? 'No keywords are defined' : ''
     }
   },
   methods: {
