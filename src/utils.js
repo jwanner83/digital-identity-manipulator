@@ -13,3 +13,8 @@ export function getRandomAlphabeticChar () {
   const possibilities = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
   return possibilities[Math.floor(Math.random() * possibilities.length)]
 }
+
+export async function getKey(key) {
+  const storage = await browser.storage.local.get()
+  return storage[key]
+}

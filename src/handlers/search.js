@@ -1,41 +1,46 @@
 import config from '../config'
-import { getRandomAlphabeticChar, getRandomBetween, wait } from "../utils";
+import { getKey, getRandomAlphabeticChar, getRandomBetween, wait } from "../utils";
 
-export async function init () {
-  config.DEBUG && console.group('search handler')
+export async function init (DEBUG) {
+  DEBUG && console.group('search handler')
 
   let storage = await browser.storage.local.get()
   let keywords = storage.keywords ? storage.keywords.split(',') : ['no keywords']
-  config.DEBUG && console.log('keywords', keywords)
+  DEBUG && console.log('keywords', keywords)
 
   let value = keywords[Math.floor(Math.random() * keywords.length)]
-  config.DEBUG && console.log('value', value)
+  DEBUG && console.log('value', value)
 
-  // add 1 / 4 possibility to have a typo in the value
-  if (getRandomBetween(4) === 1) {
-    let chars = value.split('')
-    chars.splice(getRandomBetween(chars.length, 0), 0, getRandomAlphabeticChar())
-    value = chars.join('')
+  const TYPO = await getKey('addTypoChance')
+  DEBUG && console.log('add typo', TYPO)
+
+  if (TYPO) {
+    // add 1 / 4 possibility to have a typo in the value
+    if (getRandomBetween(4) === 1) {
+      let chars = value.split('')
+      chars.splice(getRandomBetween(chars.length, 0), 0, getRandomAlphabeticChar())
+      value = chars.join('')
+    }
   }
 
   const input = document.querySelector('input[name=q]')
-  config.DEBUG && console.log('input element', input)
+  DEBUG && console.log('input element', input)
 
   const send = document.querySelector('input[value="Google Suche"], input[value="Google Search"], input[value="Recherche Google"], input[value="Cerca con Google"]')
-  config.DEBUG && console.log('send element', send)
+  DEBUG && console.log('send element', send)
 
   await wait(700, 50)
 
-  config.DEBUG && console.log('write value to element')
+  DEBUG && console.log('write value to element')
   await write(value, input)
 
   await wait(700, 200)
 
-  config.DEBUG && console.log('send request')
+  DEBUG && console.log('send request')
   await send.click()
 
-  config.DEBUG && console.log('done')
-  config.DEBUG && console.groupEnd()
+  DEBUG && console.log('done')
+  DEBUG && console.groupEnd()
 }
 
 async function write (value, element) {
