@@ -42,9 +42,9 @@ export default {
   },
   data () {
     return {
-      debug: true,
+      debug: false,
       navigateToPlain: true,
-      maximalInteractions: 1,
+      maximalInteractions: 6,
       interactResults: true,
       interactResult: true,
       addTypoChance: true
@@ -73,16 +73,20 @@ export default {
   async created () {
     const storage = await browser.storage.local.get()
 
-    this.debug = storage.debug
-    this.navigateToPlain = storage.navigateToPlain
-    this.maximalInteractions = storage.maximalInteractions
-    this.interactResults = storage.interactResults
-    this.interactResult = storage.interactResult
-    this.addTypoChance = storage.addTypoChance
+    this.debug = storage.debug || this.setDefault('debug', this.debug)
+    this.navigateToPlain = storage.navigateToPlain || this.setDefault('navigateToPlain', this.navigateToPlain)
+    this.maximalInteractions = storage.maximalInteractions || this.setDefault('maximalInteractions', this.maximalInteractions)
+    this.interactResults = storage.interactResults || this.setDefault('interactResults', this.interactResults)
+    this.interactResult = storage.interactResult || this.setDefault('interactResult', this.interactResult)
+    this.addTypoChance = storage.addTypoChance || this.setDefault('addTypoChance', this.addTypoChance)
   },
   methods: {
     openKeywords () {
       browser.runtime.openOptionsPage()
+    },
+    setDefault (key, value) {
+      browser.storage.local.set({ [key]: value })
+      return value
     }
   }
 }
