@@ -73,16 +73,23 @@ export default {
   async created () {
     const storage = await browser.storage.local.get()
 
-    this.debug = storage.debug || this.setDefault('debug', this.debug)
-    this.navigateToPlain = storage.navigateToPlain || this.setDefault('navigateToPlain', this.navigateToPlain)
-    this.maximalInteractions = storage.maximalInteractions || this.setDefault('maximalInteractions', this.maximalInteractions)
-    this.interactResults = storage.interactResults || this.setDefault('interactResults', this.interactResults)
-    this.interactResult = storage.interactResult || this.setDefault('interactResult', this.interactResult)
-    this.addTypoChance = storage.addTypoChance || this.setDefault('addTypoChance', this.addTypoChance)
+    this.debug = this.getValue('debug', storage.debug, this.debug)
+    this.navigateToPlain = this.getValue('navigateToPlain', storage.navigateToPlain, this.navigateToPlain)
+    this.maximalInteractions = this.getValue('maximalInteractions', storage.maximalInteractions, this.maximalInteractions)
+    this.interactResults = this.getValue('interactResults', storage.interactResults, this.interactResults)
+    this.interactResult = this.getValue('interactResult', storage.interactResult, this.interactResult)
+    this.addTypoChance = this.getValue('addTypoChance', storage.addTypoChance, this.addTypoChance)
   },
   methods: {
     openKeywords () {
       browser.runtime.openOptionsPage()
+    },
+    getValue (key, value, fallback) {
+      if (value === undefined || value === null) {
+        return this.setDefault(key, fallback)
+      }
+
+      return value
     },
     setDefault (key, value) {
       browser.storage.local.set({ [key]: value })
