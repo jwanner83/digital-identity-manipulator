@@ -10,6 +10,12 @@ export async function init (DEBUG) {
   results = results.slice(-1 * 8)
   DEBUG && console.log('sliced results', results)
 
+  results = results.filter(result => {
+    const anchor = result.querySelector('a')
+    return anchor && !anchor.getAttribute('href').endsWith('.pdf')
+  })
+  DEBUG && console.log('filtered results without pdf', results)
+
   const result = results[Math.floor(Math.random() * results.length)]
   DEBUG && console.log('random result', result)
 
