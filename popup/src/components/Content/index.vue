@@ -24,6 +24,7 @@ export default {
     text-align: center;
     font-style: italic;
     color: #4e4e4e;
+    line-height: 22px;
   }
 }
 </style>

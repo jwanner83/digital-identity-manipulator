@@ -1,7 +1,6 @@
 # Digital Identity Generator
-Generate different politically positioned digital identities with the help of an automated mechanism and compare the 
-search results.
-
+Generate and modify digital identities with the help of a Browser Add-on. 
+ 
 ## Requirements
 ### Technical requirements
 - <a href="https://www.mozilla.org/de/firefox/">Firefox Browser</a>
@@ -39,7 +38,7 @@ want to search, separated by a linebreak.
 
 After you've done that, press save to save the keywords.
 
-After you've done all this you can click the `Enable` button in the addon popup and a new Tab should open, 
+After you've done all this you can click the `Enable` button in the addon popup, and a new Tab should open, 
 and the magic begins.
 
 ## License
