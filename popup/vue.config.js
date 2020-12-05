@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath:  process.env.NODE_ENV === 'production' ? '/options/dist/' : '/'
+  publicPath:  process.env.NODE_ENV === 'production' ? '/popup/dist/' : '/'
 }
