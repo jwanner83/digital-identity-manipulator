@@ -1,4 +1,4 @@
-# Digital Identity Generator
+# Digital Identity Manipulator
 Generate and modify digital identities with the help of a Browser Add-on. 
  
 ## Requirements
