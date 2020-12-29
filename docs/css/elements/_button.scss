@@ -1,0 +1,47 @@
+.button {
+  cursor: pointer;
+  margin: 0;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 15px 20px;
+  background: none;
+  text-decoration: none;
+  color: black;
+  transition: $transition;
+
+  &--primary {
+    background-color: $primary;
+    color: white;
+
+    &:active {
+      background-color: $secondary;
+      color: black;
+    }
+  }
+
+  &--secondary {
+    background-color: $secondary;
+
+    &:active {
+      background-color: $primary;
+      color: white;
+    }
+  }
+
+  &--small {
+    padding: 5px 10px
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  & + & {
+    margin-left: 10px;
+  }
+}

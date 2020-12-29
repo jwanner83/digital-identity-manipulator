@@ -1,0 +1,53 @@
+.header {
+  position: relative;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__inner {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__title {
+    position: absolute;
+    width: 120%;
+    font-size: 120px;
+    margin: 0;
+
+    &-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 90px;
+
+      @media (min-width: $large) {
+        padding-left: 200px;
+      }
+    }
+  }
+
+  &__illustration {
+    max-height: 70%;
+    margin-top: 40px;
+
+    &-wrapper {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__action {
+    position: absolute;
+    left: 95px;
+    bottom: 95px;
+
+    @media (min-width: $large) {
+      left: 210px;
+    }
+  }
+}
