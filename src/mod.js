@@ -4,7 +4,7 @@ import * as results from './handlers/results'
 import * as external from './handlers/external'
 import * as plain from './handlers/plain'
 import * as un from './handlers/undefined'
-import { getKey } from "./utils";
+import { getKey } from './utils'
 
 
 (async function () {
