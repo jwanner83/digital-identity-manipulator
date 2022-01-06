@@ -6,7 +6,7 @@ export default {
   },
   /** location of the plain page */
   PLAIN: {
-    HOST: 'upscore.ch',
-    URL: 'https://upscore.ch/plain.html'
+    HOST: 'example.org',
+    URL: 'http://example.org/'
   }
 }

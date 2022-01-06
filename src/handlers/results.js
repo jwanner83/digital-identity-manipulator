@@ -4,7 +4,7 @@ import { getKey, getRandomBetween, wait } from '../utils'
 export async function init (DEBUG) {
   DEBUG && console.group('results handler')
 
-  let results = Array.from(document.querySelectorAll('.rc'))
+  let results = Array.from(document.querySelectorAll('.g'))
   DEBUG && console.log('results', results)
 
   results = results.slice(-1 * 8)
