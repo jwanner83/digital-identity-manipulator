@@ -41,5 +41,13 @@ After you've done that, press save to save the keywords.
 After you've done all this you can click the `Enable` button in the addon popup, and a new Tab should open, 
 and the magic begins.
 
+## Development
+### Build XPI
+1. Increment Version in manifest.json
+2. Move to the project root directory
+3. Get your API Key and Secret from https://addons.mozilla.org/de/developers/addon/api/key/
+4. Run `web-ext sign --api-key user:***:*** --api-secret *** -a artifacts/`
+
+
 ## License
 This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>

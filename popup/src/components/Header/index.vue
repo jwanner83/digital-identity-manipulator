@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h1 class="header-title">Digital Identity Generator</h1>
+    <h1 class="header-title">Digital Identity Manipulator</h1>
     <button class="header-settings" @click="$emit('change')">
       <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="25px" height="25px">
         <path
